@@ -18,4 +18,4 @@ watch-coverage:
 	go tool cover -html=coverage.out
 
 check-linter:
-	golangci-lint run --path-prefix=back/crm/ms-boilerplate -v --config=../../../infra/lib/cloud-lint/golangci-lint.yaml --timeout 5m
+	golangci-lint run --path-prefix=back/auth -v --config=../../infra/lib/cloud-lint/golangci-lint.yaml --timeout 5m

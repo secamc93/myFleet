@@ -49,11 +49,11 @@ func (l *logger) log(level, color, msg string, params ...interface{}) {
 	}
 
 	logMsg := fmt.Sprintf("[%s] %s [%s]", level, origin, fmt.Sprintf(msg, params...))
-	log.Printf(color + logMsg + l.colorReset)
+	log.Printf("%s%s%s", color, logMsg, l.colorReset)
 }
 
 func (l *logger) Debug(msg string, params ...interface{}) {
-	l.log("DEBUG", l.colorCyan, msg, params...)
+	l.log("DEBU", l.colorCyan, msg, params...)
 }
 
 func (l *logger) Info(msg string, params ...interface{}) {
@@ -61,7 +61,7 @@ func (l *logger) Info(msg string, params ...interface{}) {
 }
 
 func (l *logger) Success(msg string, params ...interface{}) {
-	l.log("SUCCESS", l.colorGreen, msg, params...)
+	l.log("SUCC", l.colorGreen, msg, params...)
 }
 
 func (l *logger) Warn(msg string, params ...interface{}) {
@@ -69,10 +69,10 @@ func (l *logger) Warn(msg string, params ...interface{}) {
 }
 
 func (l *logger) Error(msg string, params ...interface{}) {
-	l.log("ERROR", l.colorRed, msg, params...)
+	l.log("ERRO", l.colorRed, msg, params...)
 }
 
 func (l *logger) Fatal(msg string, params ...interface{}) {
-	l.log("FATAL", l.colorRed, msg, params...)
+	l.log("FATA", l.colorRed, msg, params...)
 	log.Panicf("[%s]", fmt.Sprintf(msg, params...))
 }

@@ -37,7 +37,7 @@ func NewDBConnection() DBConnection {
 			log.Fatal("failed to connect database: %v", err)
 			panic("failed to connect database")
 		}
-		log.Info("Database connection established")
+		log.Success("Database connection established")
 		instance = &dbConnection{db: db}
 	})
 	return instance
