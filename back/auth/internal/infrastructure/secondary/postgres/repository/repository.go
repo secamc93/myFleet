@@ -8,7 +8,7 @@ import (
 )
 
 type UserRepository interface {
-	GetUsers(CompanyID uint) ([]dtos.UserDTO, error)
+	GetUsers(companyID uint) ([]dtos.UserDTO, error)
 	CreateUser(user entities.Users) (bool, error)
 }
 
@@ -30,7 +30,7 @@ func NewRepository(db postgres.DBConnection) UserRepository {
 	return instance
 }
 
-func (r *repository) GetUsers(CompanyID uint) ([]dtos.UserDTO, error) {
+func (r *repository) GetUsers(companyID uint) ([]dtos.UserDTO, error) {
 	return nil, nil
 }
 
