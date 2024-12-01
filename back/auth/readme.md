@@ -1,6 +1,5 @@
 # AUTH
-
-Microservicio encargado de entregar la informacion que corresponde al login y modulos de cada comercio (carril CRM)
+Microservicio encargado de autenticacion, ususarios y roles 
 
 ---
 
@@ -8,50 +7,18 @@ Microservicio encargado de entregar la informacion que corresponde al login y mo
 
 Para usar este microservicio, necesitas:
 
-1. Go 1.20 o superior.
+1. Go 1.23 o superior.
 2. Makefile instalado en tu sistema.
 3. Docker instalado en tu sistema (para crear y ejecutar contenedores Docker).
 4. Tener instaladas todas las dependencias del sistema operativo requeridas.
 
 ---
 
-## Configuración 🏗️
+## Configuración
 
 La configuración de la aplicación se realiza a través de variables de entorno. Consulta el archivo `.env.example` para ver las variables disponibles y sus usos.
 
----
 
-### Dependencias 📦️
-
-Para instalar las dependencias de este proyecto, ejecuta el siguiente comando:
-
-```shell
-make deps
-```
-
-### Ejecución 🚀
-
-Para ejecutar el proyecto, usa el siguiente comando:
-
-```shell
-make run
-```
-
-## Pruebas 🧪
-
-Ejecuta el conjunto de pruebas unitarias con el siguiente comando:
-
-```shell
-make test
-```
-
-Ejecuta el siguiente comando para ver el reporte de cobertura de pruebas:
-
-```shell
-make watch-coverage
-```
-
----
 
 ## Generar mocks 🧑‍💻
 
@@ -89,14 +56,5 @@ docker build -t auth .
 docker run -p 8080:8080 auth
 ```
 
----
-
 ## Documentación 📝
-
-
-
-
-
-
-## Autores 👷
 

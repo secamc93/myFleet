@@ -1,4 +1,4 @@
-package gorm
+package postgres
 
 import (
 	"fmt"
@@ -29,6 +29,13 @@ var (
 
 func NewDBConnection() DBConnection {
 	once.Do(func() {
+		instance = &dbConnection{}
+	})
+	return instance
+}
+
+func (conn *dbConnection) GetDB() *gorm.DB {
+	if conn.db == nil {
 		envVars := env.LoadEnv()
 		dsn := fmt.Sprintf("host=%s port=%s user=%s dbname=%s password=%s sslmode=disable",
 			envVars.DBHost, envVars.DBPort, envVars.DBUser, envVars.DBName, envVars.DBPassword)
@@ -38,12 +45,9 @@ func NewDBConnection() DBConnection {
 			panic("failed to connect database")
 		}
 		log.Success("Database connection established")
-		instance = &dbConnection{db: db}
-	})
-	return instance
-}
+		conn.db = db
+	}
 
-func (conn *dbConnection) GetDB() *gorm.DB {
 	if err := conn.PingDB(); err != nil {
 		log.Warn("Database connection lost, attempting to reconnect")
 		if err := conn.Reconnect(); err != nil {

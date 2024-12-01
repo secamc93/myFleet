@@ -13,6 +13,7 @@ type Env struct {
 	DBName     string
 	DBUser     string
 	DBPassword string
+	ServerPort string
 }
 
 func LoadEnv() *Env {
@@ -30,6 +31,7 @@ func LoadEnv() *Env {
 		DBName:     getEnv("DB_NAME", log),
 		DBUser:     getEnv("DB_USER", log),
 		DBPassword: getEnv("DB_PASSWORD", log),
+		ServerPort: getEnv("SERVER_PORT", log),
 	}
 
 	return env
